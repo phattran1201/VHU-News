@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "Portal VHU",
+    "description": "by Đâu Phải Phát",
+    "slug": "PortalVHU",
+    "privacy": "public",
+    "sdkVersion": "26.0.0",
+    "platforms": ["ios", "android"],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0099ff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    }
+  }
+}
