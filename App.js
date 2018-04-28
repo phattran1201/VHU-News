@@ -3,7 +3,7 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 import RootNavigation from './navigation/RootNavigation';
-import Main from './src/components/Main';
+
 
 export default class App extends React.Component {
   state = {
@@ -18,12 +18,12 @@ export default class App extends React.Component {
   render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
       return (
-        // <AppLoading
-        //   startAsync={this._loadResourcesAsync}
-        //   onError={this._handleLoadingError}
-        //   onFinish={this._handleFinishLoading}
-        // />
-        <Main />
+        <AppLoading
+          startAsync={this._loadResourcesAsync}
+          onError={this._handleLoadingError}
+          onFinish={this._handleFinishLoading}
+        />
+  
       );
     } else {
       return (
