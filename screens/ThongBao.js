@@ -25,9 +25,9 @@ export default class DeckSwiperAdvancedExample extends Component {
   render() {
     return (
       <Container>
-        <Header>    
+        <Header style={{ backgroundColor: "#0099ff" }}>    
         <Text style={{ marginTop:20, fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
+    color: 'rgba(0,0,0,0)',
     
     textAlign: 'center',}}>Trượt ngay ảnh hoặc click nút trên để test</Text>
         </Header>  

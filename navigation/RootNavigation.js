@@ -6,18 +6,18 @@ import MainTabNavigator from './MainTabNavigator';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 import SideBar from "../screens/SideBar";
 
-
 const RootStackNavigator = StackNavigator(
   {
     Main: {
       screen: MainTabNavigator,
-    },
+    },   
   },
   {
     navigationOptions: () => ({
       headerTitleStyle: {
         fontWeight: 'normal',
       },
+     
     }),
   }
 );

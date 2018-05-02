@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
+import { View, Text, StyleSheet, Image, ScrollView,Platform } from "react-native";
+
 
 import {
   Card,
@@ -10,7 +11,7 @@ import {
   Right,
   Button,
   Icon,
-  Header
+  Header,Title, Container
 } from "native-base";
 
 class BanTin extends Component {
@@ -22,8 +23,24 @@ class BanTin extends Component {
     };
 
     return (
+      <Container>
+      <Header  style={{ backgroundColor: "#0099ff" }}>
+          <Left>
+            <Button transparent onPress={() => this.props.navigation.navigate("DrawerOpen")}    >
+            <Icon name={ Platform.OS === 'ios' ? `ios-menu${focused ? '' : '-outline'}` : 'md-menu'} />
+            </Button>
+          </Left>
+          <Body>
+            <Title>Bản Tin</Title>
+          </Body>
+          <Right>
+            <Button transparent onPress={() => this.props.navigation.navigate("HoiDap")} >
+              <Icon name={ Platform.OS === 'ios' ? `ios-chatbubbles${focused ? '' : '-outline'}` : 'md-chatbubbles'} />
+            </Button>
+          </Right>
+        </Header>
       <ScrollView>
-        <Header />
+      
         <Card>
           <CardItem>
             <Left>
@@ -211,6 +228,7 @@ class BanTin extends Component {
           </CardItem>
         </Card>
       </ScrollView>
+      </Container>
     );
   }
 }

@@ -59,15 +59,15 @@ export default class SideBar extends React.Component {
             }}
           /> */}
           <List style={{ marginTop: 150,alignItems: 'flex-start' }}>
-            <Button  style={{width: "100%"}} transparent  onPress={() => alert('Chạm nhẹ hoy nhen !') } >
+            <Button  style={{width: "100%"}} transparent  onPress={() => alert('Trang của bạn !') } >
               <Icon name='md-home' />
               <Text>Trang của bạn</Text>
                 </Button>
-          <Button style={{width: "100%"}} transparent   onPress={() => alert('Chạm nhẹ hoy nhen !')}>
+          <Button style={{width: "100%"}} transparent   onPress={() => alert('Thông tin cá nhân!')}>
             <Icon name='md-person' />
             <Text>Thông tin cá nhân</Text>
           </Button>
-          <Button style={{width: "100%"}} transparent   onPress={() => alert('Chạm nhẹ hoy nhen !')}>
+          <Button style={{width: "100%"}} transparent   onPress={() => alert('Tin Tức !')}>
             <Icon name='md-paper' />
             <Text>Tin Tức</Text>
           </Button>
