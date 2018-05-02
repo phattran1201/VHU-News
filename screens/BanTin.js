@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Image, ScrollView,Platform } from "react-native";
+import { View, Text, StyleSheet, Image, ScrollView,Platform,focused } from "react-native";
 
 
 import {
@@ -24,18 +24,18 @@ class BanTin extends Component {
 
     return (
       <Container>
-      <Header  style={{ backgroundColor: "#0099ff" }}>
+      <Header  style={{ backgroundColor: "#0099ff",marginTop: Platform.OS === 'android' ? 24 : null }}>
           <Left>
             <Button transparent onPress={() => this.props.navigation.navigate("DrawerOpen")}    >
-            <Icon name={ Platform.OS === 'ios' ? `ios-menu${focused ? '' : '-outline'}` : 'md-menu'} />
+            <Icon style= {{color:"white"}} name={ Platform.OS === 'ios' ? `ios-menu${focused ? '' : '-outline'}` : 'md-menu'} />
             </Button>
           </Left>
           <Body>
-            <Title>Bản Tin</Title>
+            <Title style= {{color:"white"}}>Bản Tin</Title>
           </Body>
           <Right>
             <Button transparent onPress={() => this.props.navigation.navigate("HoiDap")} >
-              <Icon name={ Platform.OS === 'ios' ? `ios-chatbubbles${focused ? '' : '-outline'}` : 'md-chatbubbles'} />
+              <Icon style= {{color:"white"}} name={ Platform.OS === 'ios' ? `ios-chatbubbles${focused ? '' : '-outline'}` : 'md-chatbubbles'} />
             </Button>
           </Right>
         </Header>
@@ -63,7 +63,7 @@ class BanTin extends Component {
                 transparent
                 onPress={() => alert("Chạm TIM nhẹ hoy nhen !")}
               >
-                <Icon name="ios-heart-outline" style={{ color: "black" }} />
+                <Icon style= {{color:"white"}} name="ios-heart-outline" style={{ color: "black" }} />
               </Button>
               <Button
                 transparent
@@ -78,7 +78,7 @@ class BanTin extends Component {
                 transparent
                 onPress={() => alert("Chạm Share nhẹ hoy nhen !")}
               >
-                <Icon name="ios-share-alt-outline" style={{ color: "black" }} />
+                <Icon style= {{color:"white"}} name="ios-share-alt-outline" style={{ color: "black" }} />
               </Button>
             </Left>
           </CardItem>
@@ -128,7 +128,7 @@ class BanTin extends Component {
           <CardItem style={{ height: 45 }}>
             <Left>
               <Button transparent>
-                <Icon name="ios-heart-outline" style={{ color: "black" }} />
+                <Icon style= {{color:"white"}} name="ios-heart-outline" style={{ color: "black" }} />
               </Button>
               <Button transparent>
                 <Icon
@@ -137,7 +137,7 @@ class BanTin extends Component {
                 />
               </Button>
               <Button transparent>
-                <Icon name="ios-send-outline" style={{ color: "black" }} />
+                <Icon style= {{color:"white"}} name="ios-send-outline" style={{ color: "black" }} />
               </Button>
             </Left>
           </CardItem>
@@ -187,7 +187,7 @@ class BanTin extends Component {
           <CardItem style={{ height: 45 }}>
             <Left>
               <Button transparent>
-                <Icon name="ios-heart-outline" style={{ color: "black" }} />
+                <Icon style= {{color:"white"}} name="ios-heart-outline" style={{ color: "black" }} />
               </Button>
               <Button transparent>
                 <Icon
@@ -196,7 +196,7 @@ class BanTin extends Component {
                 />
               </Button>
               <Button transparent>
-                <Icon name="ios-send-outline" style={{ color: "black" }} />
+                <Icon style= {{color:"white"}} name="ios-send-outline" style={{ color: "black" }} />
               </Button>
             </Left>
           </CardItem>

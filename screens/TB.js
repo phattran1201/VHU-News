@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View,Text, FlatList, Image, TouchableOpacity,Platform } from "react-native";
+import { View,Text, FlatList, Image, TouchableOpacity,Platform,focused } from "react-native";
 import { StackNavigator, TabNavigator } from 'react-navigation';
 import {
   Container,Header,Left,Icon,Button,Body,Title,Right,Content
@@ -56,18 +56,18 @@ export default class TB extends React.Component {
     const { navigate } = this.props.navigation;
 
     return <Container style={{ backgroundColor: "white" }}>
-    <Header  style={{ backgroundColor: "#0099ff" }}>
+    <Header  style={{ backgroundColor: "#0099ff",marginTop: Platform.OS === 'android' ? 24 : null }}>
   <Left>
     <Button transparent onPress={() => this.props.navigation.navigate("DrawerOpen")}    >
-    <Icon name={ Platform.OS === 'ios' ? `ios-menu${focused ? '' : '-outline'}` : 'md-menu'} />
+    <Icon style= {{color:"white"}} name={ Platform.OS === 'ios' ? `ios-menu${focused ? '' : '-outline'}` : 'md-menu'} />
     </Button>
   </Left>
   <Body>
-    <Title>Thông Báo</Title>
+    <Title style= {{color:"white"}}>Thông Báo</Title>
   </Body>
   <Right>
     <Button transparent onPress={() => this.props.navigation.navigate("HoiDap")} >
-      <Icon name={ Platform.OS === 'ios' ? `ios-chatbubbles${focused ? '' : '-outline'}` : 'md-chatbubbles'} />
+      <Icon style= {{color:"white"}} name={ Platform.OS === 'ios' ? `ios-chatbubbles${focused ? '' : '-outline'}` : 'md-chatbubbles'} />
     </Button>
   </Right>
 </Header>

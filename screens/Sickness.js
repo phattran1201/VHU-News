@@ -44,7 +44,7 @@ return(
     {/* <Button
       transparent
       onPress={() => this.props.navigation.navigate("NoiDung")}            >
-      <Icon name="menu" />
+      <Icon style= {{color:"white"}} name="menu" />
     </Button> */}
   </ListItem>
 )}
@@ -71,7 +71,7 @@ return(
             <Button
               transparent
               onPress={() => this.props.navigation.navigate("DrawerOpen")}            >
-              <Icon name="menu" />
+              <Icon style= {{color:"white"}} name="menu" />
             </Button>
           </Left>
           <Body>

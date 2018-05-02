@@ -55,7 +55,7 @@ export default class DeckSwiperAdvancedExample extends Component {
                   <Image style={{ height: 300, flex: 1 }} source={item.image} />
                 </CardItem>
                 <CardItem>
-                  <Icon name="heart" style={{ color: '#ED4A6A' }} />
+                  <Icon style= {{color:"white"}} name="heart" style={{ color: '#ED4A6A' }} />
                   <Text>{item.name}</Text>
                 </CardItem>
               </Card>            }
@@ -64,13 +64,13 @@ export default class DeckSwiperAdvancedExample extends Component {
         </View>
         <View style={{ flexDirection: "row", flex: 1, position: "absolute", bottom: 50, left: 0, right: 0, justifyContent: 'space-between', padding: 15 }}>
         <Button iconLeft onPress={() => this._deckSwiper._root.swipeLeft()}>
-            <Icon name="arrow-back" />
+            <Icon style= {{color:"white"}} name="arrow-back" />
             <Text>Trượt trái</Text>
           </Button>
           <Button iconRight onPress={() => this._deckSwiper._root.swipeRight()}>
             
             <Text>Trượt phải</Text>
-            <Icon name="arrow-forward" />
+            <Icon style= {{color:"white"}} name="arrow-forward" />
           </Button>
           </View>
       </Container>
@@ -125,7 +125,7 @@ export default class DeckSwiperAdvancedExample extends Component {
 //     {/* <Button
 //       transparent
 //       onPress={() => this.props.navigation.navigate("NoiDung")}            >
-//       <Icon name="menu" />
+//       <Icon style= {{color:"white"}} name="menu" />
 //     </Button> */}
 //   </ListItem>
 // )}
@@ -152,7 +152,7 @@ export default class DeckSwiperAdvancedExample extends Component {
 //             <Button
 //               transparent
 //               onPress={() => this.props.navigation.navigate("DrawerOpen")}            >
-//               <Icon name="menu" />
+//               <Icon style= {{color:"white"}} name="menu" />
 //             </Button>
 //           </Left>
 //           <Body>

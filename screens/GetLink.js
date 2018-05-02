@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, WebView,Platform } from 'react-native';
+import { View, Text, WebView,Platform,focused } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import {Icon} from 'native-base';
 

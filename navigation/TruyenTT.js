@@ -10,6 +10,6 @@ export default (DrawNav = StackNavigator(
   },
   {
     initialRouteName: "TT",
-    // headerMode: "none"
+    headerMode: "screen"
   }
 ));
