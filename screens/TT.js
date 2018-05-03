@@ -23,7 +23,7 @@ export default class TT extends React.Component {
             loading: true,
             refreshing: true,
         });
-        return fetch("https://unlit-abbreviations.000webhostapp.com/getNews.php")
+        return fetch("http://itcvhu.me/PortalVHU/getNews.php")
             .then((response) => response.json())
             .then((responseJson) => {
                 this.setState({
@@ -34,7 +34,7 @@ export default class TT extends React.Component {
             });
     }
     makeRemoteRequest = () => {
-        const url = `https://unlit-abbreviations.000webhostapp.com/getNews.php`;
+        const url = `http://itcvhu.me/PortalVHU/getNews.php`;
         this.setState({ loading: true });
         fetch(url)
             .then(response => response.json())

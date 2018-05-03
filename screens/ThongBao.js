@@ -62,7 +62,7 @@ export default class DeckSwiperAdvancedExample extends Component {
           />
          
         </View>
-        <View style={{ flexDirection: "row", flex: 1, position: "absolute", bottom: 50, left: 0, right: 0, justifyContent: 'space-between', padding: 15 }}>
+        {/* <View style={{ flexDirection: "row", flex: 1, position: "absolute", bottom: 50, left: 0, right: 0, justifyContent: 'space-between', padding: 15 }}>
         <Button iconLeft onPress={() => this._deckSwiper._root.swipeLeft()}>
             <Icon style= {{color:"white"}} name="arrow-back" />
             <Text>Trượt trái</Text>
@@ -72,7 +72,7 @@ export default class DeckSwiperAdvancedExample extends Component {
             <Text>Trượt phải</Text>
             <Icon style= {{color:"white"}} name="arrow-forward" />
           </Button>
-          </View>
+          </View> */}
       </Container>
      
         

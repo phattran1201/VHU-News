@@ -45,19 +45,7 @@ export default class SideBar extends React.Component {
                 "http://eoffice.vhu.edu.vn/App/assets/img/VHU_logo.png"
             }}
           />
-          {/* <List
-            dataArray={routes}
-            contentContainerStyle={{ marginTop: 120 }}
-            renderRow={ data => {
-              return (
-                <ListItem
-                  button
-                  onPress={() => this.props.navigation.navigate(data)}                >
-                  <Text>{data}</Text>
-                </ListItem>
-              );
-            }}
-          /> */}
+          
           <List style={{ marginTop: 150,alignItems: 'flex-start' }}>
             <Button  style={{width: "100%"}} transparent  onPress={() => alert('Trang của bạn !') } >
               <Icon  name='md-home' />
@@ -89,3 +77,16 @@ export default class SideBar extends React.Component {
     );
   }
 }
+{/* <List
+            dataArray={routes}
+            contentContainerStyle={{ marginTop: 120 }}
+            renderRow={ data => {
+              return (
+                <ListItem
+                  button
+                  onPress={() => this.props.navigation.navigate(data)}                >
+                  <Text>{data}</Text>
+                </ListItem>
+              );
+            }}
+          /> */}

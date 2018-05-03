@@ -21,7 +21,7 @@ export default class TB extends React.Component {
             loading: true,
             refreshing: true,
         });
-        return fetch("https://unlit-abbreviations.000webhostapp.com/getNotification.php")
+        return fetch("http://itcvhu.me/PortalVHU/getNotification.php")
             .then((response) => response.json())
             .then((responseJson) => {
                 this.setState({
@@ -32,7 +32,7 @@ export default class TB extends React.Component {
             });
     }
     makeRemoteRequest = () => {
-        const url = `https://unlit-abbreviations.000webhostapp.com/getNotification.php`;
+        const url = `http://itcvhu.me/PortalVHU/getNotification.php`;
         this.setState({ loading: true });
         fetch(url)
             .then(response => response.json())

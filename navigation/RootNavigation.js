@@ -14,9 +14,7 @@ const RootStackNavigator = StackNavigator(
   },
   {
     navigationOptions: () => ({
-      headerTitleStyle: {
-        fontWeight: 'normal',
-      },
+      header:null
      
     }),
   }
@@ -24,7 +22,7 @@ const RootStackNavigator = StackNavigator(
 
 const TrangChuRouter = DrawerNavigator(
   {
-    TrangChu: { screen: MainTabNavigator },
+    TrangChu: { screen: RootStackNavigator },
    
   },
   {

@@ -16,7 +16,7 @@ export default class GetLink extends Component {
         headerStyle: {
             backgroundColor: '#0099ff'
         },
-        // headerMode: "none"
+        headerMode: 'screen'
       };
     render() {
         const { navigate } = this.props.navigation;

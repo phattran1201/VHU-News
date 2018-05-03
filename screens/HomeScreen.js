@@ -9,17 +9,34 @@ import {
   View,
   H1,
   H2,
-  Header
+  Header,Button,Linking 
 } from "react-native";
 import { WebBrowser } from "expo";
 
 import { MonoText } from "../components/StyledText";
 
+
+
+class Mail extends React.Component {
+  _handlePress = () => {
+    console.log("Thông tin nhập " + this.props.href);
+    Linking.openURL(this.props.href);
+    this.props.onPress && this.props.onPress();
+  };
+
+  render() {
+    return (
+      <Button title={this.props.title} onPress={this._handlePress} />
+    );
+  }
+}
+
+
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null
   };
-
+  
   render() {
     return (
       <View style={styles.container}>
@@ -58,6 +75,10 @@ export default class HomeScreen extends React.Component {
             source={require("../assets/images/icon.png")}
           />
         </View>
+        <View style={styles.button}>
+        <Mail href="https://google.com" title="Go to Google" />
+        <Mail href="mailto://itcvhu@gmail.com" title="Email Expo" />
+      </View>
         {/* </ScrollView> */}
 
         <View style={styles.tabBarInfoContainer}>
@@ -79,6 +100,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff"
   },
+  button: {
+    flex: 1,
+   marginTop: 10,
+  },
   getXinChao: {
     fontSize: 20,
     color: "#0099ff",
@@ -96,8 +121,8 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   itc: {
-    width: 192,
-    height: 192,
+    width: 100,
+    height: 100,
     resizeMode: "contain",
 
     alignItems: "center"

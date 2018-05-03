@@ -18,32 +18,17 @@ import TruyenTT from './TruyenTT';
 import TT from '../screens/TT';
 import TB from '../screens/TB';
  import GetLink from '../screens/GetLink'; 
-import TabTT from './TabTT';
+
 export default TabNavigator(
-  {'Cài Đặt': {
-    screen: SettingsScreen,
-  },
-    'Trang chủ': {
-      screen: HomeScreen,
-    },
+  {
+   
      'Tin Tức': {
       screen: TruyenTT,
-    },
-     'Thông Báo': {
-      screen: TruyenTB,
-    },
+    },    
     'Bản Tin': {
       screen: BanTin,
     },
-    
-    'Thảo Luận': {
-      screen: TruyenMH,
-    },
    
-   'Swiper': {
-      screen: ThongBao,
-    },
-    
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -64,10 +49,7 @@ export default TabNavigator(
             iconName = Platform.OS === 'ios' ? `ios-paper${focused ? '' : '-outline'}` : 'md-paper';
             break;
           case 'Tin Tức':
-          iconName = Platform.OS === 'ios' ? `ios-barcode${focused ? '' : '-outline'}`: 'md-barcode';
-          break;
-          case 'Cài Đặt':
-          iconName = Platform.OS === 'ios' ? `ios-settings${focused ? '' : '-outline'}` : 'md-settings';
+          iconName = Platform.OS === 'ios' ? `ios-barcode${focused ? '' : '-outline'}` : 'md-barcode';
           break;
           case 'Swiper':
           iconName = Platform.OS === 'ios' ? `ios-swap${focused ? '' : '-outline'}` : 'md-swap';
@@ -87,8 +69,8 @@ export default TabNavigator(
       },
     }),
     tabBarComponent: TabBarBottom,
-    tabBarPosition: 'bottom',
-    animationEnabled: false,
+    tabBarPosition: 'top',
+    animationEnabled: true,
     swipeEnabled: true,
   }
-);
+  ); 
