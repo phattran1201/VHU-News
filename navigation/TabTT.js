@@ -7,7 +7,7 @@ import Colors from '../constants/Colors';
 
 import HomeScreen from '../screens/HomeScreen';
 // import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import CaiDat from '../screens/CaiDat';
 import ThongBao from '../screens/ThongBao';
 import BanTin from '../screens/BanTin';
 import HoiDap from '../screens/HoiDap';

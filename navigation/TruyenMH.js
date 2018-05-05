@@ -12,6 +12,6 @@ export default (DrawNav = StackNavigator(
   },
   {
     initialRouteName: "HoiDap",
-    headerMode: "none"
+    headerMode: "screen"
   }
 ));

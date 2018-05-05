@@ -6,11 +6,35 @@ import {
 } from "native-base";
 // import ThemCauHoi from '../screens/ThemCauHoi';
 
-var URL = 'http://192.168.56.1/PortalVHU_API/CommentHoiDap.php';
-var URL_API = 'http://192.168.56.1/PortalVHU_API/HoiDap.php';
+var URL = 'http://itcvhu.me/PortalVHU/CommentHoiDap.php';
+var URL_API = 'http://itcvhu.me/PortalVHU/HoiDap.php';
 
 
 export default class HoiDap extends React.Component {
+  static navigationOptions = ({ navigation }) => ({
+    headerLeft: <Icon 
+        name={Platform.OS === 'ios' ? `ios-menu${focused ? '' : '-outline'}` : 'md-menu'}
+        style={{ paddingLeft: 20, color:'#fff'}} 
+        onPress={() => navigation.navigate("DrawerOpen")}  />,
+    title: 'HỎI ĐÁP',
+    headerRight: <Icon  onPress={() => navigation.navigate('GuiCauHoi')}
+   name={ Platform.OS === 'ios' ? `ios-add-circle${focused ? '' : '-outline'}` : 'md-add-circle'} 
+        style={{ paddingRight: 20, color:'#fff' }}
+        />,
+    headerTitleStyle: {
+        textAlign: 'center',
+        flex: 1,
+        fontWeight: 'bold',   
+        fontStyle: 'italic',
+    
+    },
+    headerStyle: {
+        backgroundColor: '#0099ff',
+        elevation: 0,
+        shadowOpacity: 0,
+    },
+    headerTintColor: '#fff',
+})
     constructor(props) {
         super(props);
         this.state = {
@@ -52,7 +76,7 @@ pushView(id, content) {
   render() {
     return (
       <Container>
-      <Header  style={{ backgroundColor: "#0099ff",marginTop: Platform.OS === 'android' ? 24 : null }}>
+      {/* <Header  style={{ backgroundColor: "#0099ff",marginTop: Platform.OS === 'android' ? 24 : null }}>
           <Left>
             <Button transparent onPress={() => this.props.navigation.navigate("DrawerOpen")}    >
             <Icon style= {{color:"white"}} name={ Platform.OS === 'ios' ? `ios-menu${focused ? '' : '-outline'}` : 'md-menu'} />
@@ -66,7 +90,7 @@ pushView(id, content) {
             <Icon style= {{color:"white"}} name={ Platform.OS === 'ios' ? `ios-send${focused ? '' : '-outline'}` : 'md-send'} />
             </Button>
           </Right>
-        </Header>
+        </Header> */}
         <Content>
         
           <ListView dataSource={this.state.dataSource}

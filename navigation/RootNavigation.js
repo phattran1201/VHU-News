@@ -6,11 +6,53 @@ import MainTabNavigator from './MainTabNavigator';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 import SideBar from "../screens/SideBar";
 
+import HomeScreen from '../screens/HomeScreen';
+// import LinksScreen from '../screens/LinksScreen';
+import CaiDat from '../screens/CaiDat';
+import ThongBao from '../screens/ThongBao';
+import BanTin from '../screens/BanTin';
+import HoiDap from '../screens/HoiDap';
+import GuiCauHoi from '../screens/GuiCauHoi';
+import TruyenMH from './TruyenMH';
+import TruyenTB from './TruyenTB';
+import TruyenTT from './TruyenTT';
+import TT from '../screens/TT';
+import TB from '../screens/TB';
+ import GetLink from '../screens/GetLink'; 
+import TabTT from './TabTT';
+
 const RootStackNavigator = StackNavigator(
   {
-    Main: {
-      screen: MainTabNavigator,
-    },   
+    // Main: {
+    //   screen: MainTabNavigator,
+    // }, 
+    'Tin Tức': {
+      screen: TruyenTT,
+    },  
+    'Cài Đặt': {
+      screen: CaiDat,
+    },
+      'Trang chủ': {
+        screen: HomeScreen,
+      },
+      
+       'Thông Báo': {
+        screen: TruyenTB,
+      },
+      'Bản Tin': {
+        screen: BanTin,
+      },
+      
+      // 'Thảo Luận': {
+      //   screen: TruyenMH,
+      // },
+     
+     'Swiper': {
+        screen: ThongBao,
+      },
+      'Hỏi Đáp': {
+        screen: TruyenMH,
+      },
   },
   {
     navigationOptions: () => ({

@@ -1,5 +1,5 @@
 import React from "react";
-import { AppRegistry, Image, StatusBar,View,focused,WebBrowser } from "react-native";
+import { AppRegistry, Image, StatusBar,View,focused,WebBrowser,Platform } from "react-native";
 import {
   Button,
   Text,
@@ -15,7 +15,31 @@ import {
 
 
 
-export default class SettingsScreen extends React.Component {
+export default class CaiDat extends React.Component {
+  static navigationOptions = ({ navigation }) => ({
+    headerLeft: <Icon 
+        name={Platform.OS === 'ios' ? `ios-menu${focused ? '' : '-outline'}` : 'md-menu'}
+        style={{ paddingLeft: 20, color:'#fff'}} 
+        onPress={() => navigation.navigate("DrawerOpen")}  />,
+    title: 'CÀI ĐẶT',
+    headerRight: <Icon   onPress={() => navigation.navigate({ routeName: "HoiDap" })}
+   name={ Platform.OS === 'ios' ? `ios-add-circle${focused ? '' : '-outline'}` : 'md-add-circle'} 
+        style={{ paddingRight: 20, color:'#fff' }}
+        />,
+    headerTitleStyle: {
+        textAlign: 'center',
+        flex: 1,
+        fontWeight: 'bold',   
+        // fontStyle: 'italic',
+    
+    },
+    headerStyle: {
+        backgroundColor: '#0099ff',
+        elevation: 0,
+        shadowOpacity: 0,
+    },
+    headerTintColor: '#fff',
+})
   render() {
     return <Container>
         <Content>
@@ -31,7 +55,7 @@ export default class SettingsScreen extends React.Component {
             </ListItem>
             <ListItem icon>
               <Left>
-                <Icon name="notifications" />
+                <Icon  name={Platform.OS === 'ios' ? `ios-notifications${focused ? '' : '-outline'}` : 'md-notifications'}  />
               </Left>
               <Body>
                 <Text>Thông Báo</Text>
@@ -42,7 +66,7 @@ export default class SettingsScreen extends React.Component {
             </ListItem>
             <ListItem icon>
               <Left>
-                <Icon name="pulse" />
+                <Icon  name={Platform.OS === 'ios' ? `ios-pulse${focused ? '' : '-outline'}` : 'md-pulse'}/>
               </Left>
               <Body>
                 <Text>Rung</Text>
@@ -56,7 +80,7 @@ export default class SettingsScreen extends React.Component {
             </ListItem>
             <ListItem icon>
               <Left>
-                <Icon name="people" />
+                <Icon  name={Platform.OS === 'ios' ? `ios-people${focused ? '' : '-outline'}` : 'md-people'} />
               </Left>
               <Body>
                 <Text>Câu lạc bộ ITC</Text>
@@ -64,7 +88,7 @@ export default class SettingsScreen extends React.Component {
             </ListItem>
             <ListItem icon>
               <Left>
-                <Icon name="person" />
+                <Icon  name={Platform.OS === 'ios' ? `ios-person${focused ? '' : '-outline'}` : 'md-person'}/>
               </Left>
               <Body>
                 <Text onPress={() =>
@@ -79,7 +103,7 @@ export default class SettingsScreen extends React.Component {
             </ListItem>
             <ListItem icon>
               <Left>
-                <Icon name="information-circle" />
+                <Icon  name={Platform.OS === 'ios' ? `ios-information-circle${focused ? '' : '-outline'}` : 'md-information-circle'}  />
               </Left>
               <Body>
                 <Text>Trợ giúp</Text>
@@ -87,7 +111,7 @@ export default class SettingsScreen extends React.Component {
             </ListItem>
             <ListItem icon>
               <Left>
-                <Icon name="lock" />
+                <Icon  name={Platform.OS === 'ios' ? `ios-lock${focused ? '' : '-outline'}` : 'md-lock'}/>
               </Left>
               <Body>
                 <Text>Chính sách bảo mật</Text>
@@ -95,7 +119,7 @@ export default class SettingsScreen extends React.Component {
             </ListItem>
             <ListItem icon>
               <Left>
-                <Icon name="bookmarks" />
+                <Icon  name={Platform.OS === 'ios' ? `ios-bookmarks${focused ? '' : '-outline'}` : 'md-person'} />
               </Left>
               <Body>
                 <Text>Điều khoản Dịch vụ</Text>
@@ -103,10 +127,10 @@ export default class SettingsScreen extends React.Component {
             </ListItem>
             <ListItem icon>
               <Left>
-                <Icon name="close" />
+                <Icon  name={Platform.OS === 'ios' ? `ios-exit${focused ? '' : '-outline'}` : 'md-exit'} />
               </Left>
               <Body>
-                <Text>Đang xuất</Text>
+                <Text>Đăng xuất</Text>
               </Body>
             </ListItem>
           </List>

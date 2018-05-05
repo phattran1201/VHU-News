@@ -8,9 +8,30 @@ import {
 
 
 export default class TT extends React.Component {
-    static navigationOptions = {
-        header: null,
-};
+    static navigationOptions = ({ navigation }) => ({
+        headerLeft: <Icon 
+            name={Platform.OS === 'ios' ? `ios-menu${focused ? '' : '-outline'}` : 'md-menu'}
+            style={{ paddingLeft: 20, color:'#fff'}} 
+            onPress={() => navigation.navigate("DrawerOpen")}  />,
+        title: 'VHU NEWS',
+        headerRight: <Icon      onPress={() => navigation.navigate({ routeName: "TB" })}   
+        name={ Platform.OS === 'ios' ? `ios-notifications${focused ? '' : '-outline'}` : 'md-notifications'} 
+            style={{ paddingRight: 20, color:'#fff' }}
+            />,
+        headerTitleStyle: {
+            textAlign: 'center',
+            flex: 1,
+            fontWeight: 'bold',   
+            fontStyle: 'italic',
+        
+        },
+        headerStyle: {
+            backgroundColor: '#0099ff',
+            elevation: 0,
+            shadowOpacity: 0,
+        },
+        headerTintColor: '#fff',
+})
       constructor(props) {
         super(props);
         this.state = {
@@ -58,7 +79,7 @@ export default class TT extends React.Component {
         const { navigate } = this.props.navigation;
         return (
             <Container style={{ backgroundColor: "white" }}>
-            <Header  style={{ backgroundColor: "#0099ff",marginTop: Platform.OS === 'android' ? 24 : null }}>
+            {/* <Header  style={{ backgroundColor: "#0099ff",marginTop: Platform.OS === 'android' ? 24 : null }}>
           <Left>
             <Button transparent onPress={() => this.props.navigation.navigate("DrawerOpen")}    >
             <Icon style= {{color:"white"}} name={ Platform.OS === 'ios' ? `ios-menu${focused ? '' : '-outline'}` : 'md-menu'} />
@@ -72,14 +93,14 @@ export default class TT extends React.Component {
               <Icon style= {{color:"white"}} name={ Platform.OS === 'ios' ? `ios-chatbubbles${focused ? '' : '-outline'}` : 'md-chatbubbles'} />
             </Button>
           </Right>
-        </Header>
+        </Header> */}
                 <FlatList
                     data={this.state.mang}
                     renderItem={({ item }) =>
                         <TouchableOpacity
                             style={{ borderBottomWidth: 0.2, borderBottomColor: '#E0E0E0', padding: 5 }}
                             onPress={() => {
-                                navigate('GetLink', { link: item.LINK })
+                                navigate('GetLink', { link: item.LINK,tieude: item.TIEUDE })
                             }}
                         >
                             <View style={{ flexDirection: "row", marginTop: 5, marginBottom: 5 }}>

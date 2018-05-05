@@ -1,5 +1,5 @@
 import React from "react";
-import { AppRegistry, Image, StatusBar,View,focused } from "react-native";
+import { AppRegistry, Image, StatusBar,View,focused,Platform } from "react-native";
 import {
   Button,
   Text,
@@ -12,10 +12,11 @@ import {
 } from "native-base";
 // import TrangChu from "../TrangChu/TrangChu";
 // const routes = ["Trang Chủ", "Trang Cá Nhân", "Tin Tức"];
-
+import MainTabNavigator from '../navigation/MainTabNavigator';
 
 export default class SideBar extends React.Component {
   render() {
+    // const {navigator} = this.props.navigation;
     return (
       <Container>
         <Content>
@@ -25,7 +26,7 @@ export default class SideBar extends React.Component {
                 "https://raw.githubusercontent.com/GeekyAnts/NativeBase-KitchenSink/master/assets/drawer-cover.png"
             }}
             style={{
-              height: 120,
+              height: 150,
               width: "100%",
               alignSelf: "stretch",
               position: "absolute"
@@ -34,6 +35,7 @@ export default class SideBar extends React.Component {
           <Image
             square
             style={{
+              marginTop:24,
               height: 80,
               width: 150,
               position: "absolute",
@@ -46,30 +48,34 @@ export default class SideBar extends React.Component {
             }}
           />
           
-          <List style={{ marginTop: 150,alignItems: 'flex-start' }}>
-            <Button  style={{width: "100%"}} transparent  onPress={() => alert('Trang của bạn !') } >
-              <Icon  name='md-home' />
-              <Text>Trang của bạn</Text>
+          <List style={{  marginTop: 160,alignItems: 'flex-start'}}>
+            <Button   transparent  onPress={() =>  this.props.navigation.navigate('Tin Tức')} >
+              <Icon style={{color: '#09f' }}   name = {Platform.OS === 'ios' ? `ios-home${focused ? '' : '-outline'}` : 'md-home'} />
+              <Text style={{color: '#09f' }} >Trang của bạn</Text>
                 </Button>
-          <Button style={{width: "100%"}} transparent   onPress={() => alert('Thông tin cá nhân!')}>
-            <Icon  name='md-person' />
-            <Text>Thông tin cá nhân</Text>
+          <Button  transparent   >
+            <Icon style={{color: '#09f' }}  name = {Platform.OS === 'ios' ? `ios-person${focused ? '' : '-outline'}` : 'md-person'} />
+            <Text style={{color: '#09f' }}>Thông tin cá nhân</Text>
           </Button>
-          <Button style={{width: "100%"}} transparent   onPress={() => alert('Tin Tức !')}>
-            <Icon  name='md-paper' />
-            <Text>Tin Tức</Text>
+          <Button  transparent    onPress={() => this.props.navigation.navigate('Thông Báo')}>
+            <Icon style={{color: '#09f' }}  name = {Platform.OS === 'ios' ? `ios-notifications${focused ? '' : '-outline'}` : 'md-notifications'} />
+            <Text style={{color: '#09f' }} >Thông Báo</Text>
           </Button>
-          <Button style={{width: "100%"}} transparent  >
-            <Icon  name='md-cash' />
-            <Text>Hướng dẫn sử dụng</Text>
+          <Button  transparent    onPress={() => this.props.navigation.navigate('Hỏi Đáp')}>
+            <Icon style={{color: '#09f' }}   name = {Platform.OS === 'ios' ? `ios-help-circle${focused ? '' : '-outline'}` : 'md-help-circle'}/>
+            <Text style={{color: '#09f' }} >Hỏi Đáp</Text>
           </Button>
-          <Button style={{width: "100%"}} transparent  >
-            <Icon  name='md-build' />
-            <Text>Cài đặt</Text>
+          <Button  transparent  >
+            <Icon style={{color: '#09f' }} name = {Platform.OS === 'ios' ? `ios-paper${focused ? '' : '-outline'}` : 'md-paper'} />
+            <Text style={{color: '#09f' }}>Hướng dẫn sử dụng</Text>
           </Button>
-          <Button style={{width: "100%"}} transparent  >
-            <Icon  name='md-cloudy-night' />
-            <Text>Đăng xuất</Text>
+          <Button  transparent  onPress={() => this.props.navigation.navigate('Cài Đặt')} >
+            <Icon style={{color: '#09f' }}  name = {Platform.OS === 'ios' ? `ios-build${focused ? '' : '-outline'}` : 'md-build'} />
+            <Text style={{color: '#09f' }}>Cài đặt</Text>
+          </Button>
+          <Button  transparent  >
+            <Icon style={{color: '#09f' }} name = {Platform.OS === 'ios' ? `ios-exit${focused ? '' : '-outline'}` : 'md-exit'}  />
+            <Text style={{color: '#09f' }}>Đăng xuất</Text>
           </Button>
           </List>
         </Content>
@@ -85,8 +91,10 @@ export default class SideBar extends React.Component {
                 <ListItem
                   button
                   onPress={() => this.props.navigation.navigate(data)}                >
-                  <Text>{data}</Text>
+                  <Text style={{color: '#09f' }}>{data}</Text>
                 </ListItem>
               );
             }}
           /> */}
+
+         

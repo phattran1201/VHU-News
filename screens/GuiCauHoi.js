@@ -6,10 +6,33 @@ import {
 } from "native-base";
 
 
-var URL_API = 'http://192.168.56.1/PortalVHU_API/GuiCauHoi.php';
+var URL_API = 'http://itcvhu.me/PortalVHU/GuiCauHoi.php';
 
 export default class GuiCauHoi extends React.Component {
+  static navigationOptions = ({ navigation }) => ({
+    // headerLeft: <Icon 
+    //     name={Platform.OS === 'ios' ? `ios-menu${focused ? '' : '-outline'}` : 'md-menu'}
+    //     style={{ paddingLeft: 20, color:'#fff'}} 
+    //     onPress={() => navigation.navigate("DrawerOpen")}  />,
+    title: 'ĐẶT CÂU HỎI',
+    headerRight: <Icon  
+   name={ Platform.OS === 'ios' ? `ios-help${focused ? '' : '-outline'}` : 'md-help'} 
+        style={{ paddingRight: 20, color:'#fff' }}
+        />,
+    headerTitleStyle: {
+        textAlign: 'center',
+        flex: 1,
+        fontWeight: 'bold',   
+        fontStyle: 'italic',
     
+    },
+    headerStyle: {
+        backgroundColor: '#0099ff',
+        elevation: 0,
+        shadowOpacity: 0,
+    },
+    headerTintColor: '#fff',
+})
     constructor(props) {
         super(props);
               
@@ -27,12 +50,11 @@ export default class GuiCauHoi extends React.Component {
       })
       .done()
   }
-}
-
+    }
   render() {
     return (
       <Container>
-       <Header  style={{ backgroundColor: "#0099ff",marginTop: Platform.OS === 'android' ? 24 : null }}>
+       {/* <Header  style={{ backgroundColor: "#0099ff",marginTop: Platform.OS === 'android' ? 24 : null }}>
           <Left>
             <Button transparent onPress={() => this.props.navigation.navigate("DrawerOpen")}    >
             <Icon style= {{color:"white"}} name={ Platform.OS === 'ios' ? `ios-menu${focused ? '' : '-outline'}` : 'md-menu'} />
@@ -42,17 +64,19 @@ export default class GuiCauHoi extends React.Component {
             <Title style= {{color:"white"}}>Đặt câu hỏi</Title>
           </Body>
           <Right>
-            <Button transparent onPress={() => this.GuiCauHoi(this.state.question) }>
+            <Button transparent onPress={() => this.GuiCauHoi(this.state.question)} >
               <Icon style= {{color:"white"}} name='send' />
             </Button>
           </Right>
-        </Header>
+        </Header> */}
         <Content>
         <Text>Gửi câu hỏi đến chúng tôi</Text>
         <Text></Text>
           <TextInput multiline={true} 
           onChangeText = {(question) => this.setState({question: question})}/>
-         
+         <Button transparent onPress={() => this.GuiCauHoi(this.state.question)} >
+              <Icon style= {{color:"white"}} name='send' />
+            </Button>
         </Content>
       </Container>
     );

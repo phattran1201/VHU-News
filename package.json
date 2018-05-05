@@ -19,4 +19,5 @@
   "devDependencies": {
     "jest-expo": "^26.0.0"
   }
+ 
 }

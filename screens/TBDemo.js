@@ -7,8 +7,8 @@ import {
 
 
 
-var URL_API = 'http://192.168.56.1/PortalVHU_API/Category.php';
-var URL = 'http://192.168.56.1/PortalVHU_API/Sickness.php';
+var URL_API = 'http://itcvhu.me/PortalVHU/Category.php';
+var URL = 'http://itcvhu.me/PortalVHU/Sickness.php';
 export default class ThongBao extends React.Component {
 
   constructor(props) {

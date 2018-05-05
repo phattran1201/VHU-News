@@ -15,6 +15,28 @@ import {
 } from "native-base";
 
 class BanTin extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    headerLeft: <Icon 
+        name={Platform.OS === 'ios' ? `ios-menu${focused ? '' : '-outline'}` : 'md-menu'}
+        style={{ paddingLeft: 20, color:'#fff'}} 
+        onPress={() => navigation.navigate("DrawerOpen")}  />,
+    title: 'VHU NEWS',
+    headerRight: <Icon      onPress={() => navigation.navigate({ routeName: "HoiDap" })}
+       name={ Platform.OS === 'ios' ? `ios-chatbubbles${focused ? '' : '-outline'}` : 'md-chatbubbles'} 
+        style={{ paddingRight: 20, color:'#fff' }}
+        />,
+    headerTitleStyle: {
+        textAlign: 'center',
+        flex: 1,
+        fontWeight: 'bold',           
+    },
+    headerStyle: {
+        backgroundColor: '#0099ff',
+        elevation: 0,
+        shadowOpacity: 0,
+    },
+    headerTintColor: '#fff',
+})
   render() {
     const images = {
       "1": require("../assets/images/1.jpg"),
@@ -24,7 +46,7 @@ class BanTin extends Component {
 
     return (
       <Container>
-      <Header  style={{ backgroundColor: "#0099ff",marginTop: Platform.OS === 'android' ? 24 : null }}>
+      {/* <Header  style={{ backgroundColor: "#0099ff",marginTop: Platform.OS === 'android' ? 24 : null }}>
           <Left>
             <Button transparent onPress={() => this.props.navigation.navigate("DrawerOpen")}    >
             <Icon style= {{color:"white"}} name={ Platform.OS === 'ios' ? `ios-menu${focused ? '' : '-outline'}` : 'md-menu'} />
@@ -35,10 +57,10 @@ class BanTin extends Component {
           </Body>
           <Right>
             <Button transparent onPress={() => this.props.navigation.navigate("HoiDap")} >
-              <Icon style= {{color:"white"}} name={ Platform.OS === 'ios' ? `ios-chatbubbles${focused ? '' : '-outline'}` : 'md-chatbubbles'} />
+              <Icon style= {{color:"white"}} />
             </Button>
           </Right>
-        </Header>
+        </Header> */}
       <ScrollView>
       
         <Card>
