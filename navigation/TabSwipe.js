@@ -1,16 +1,18 @@
 import React, { Component } from "react";
 import { StackNavigator } from "react-navigation";
 
-
-import Swipe from "../screens/Swipe";
-
+import CaiDat from "../screens/CaiDat";
+import VHU360 from "../screens/VHU360";
+import GetLink from "../screens/GetLink";
 export default (DrawNav = StackNavigator(
   {
     
-    Swipe: { screen: Swipe }
+    VHU360: { screen: VHU360 },
+    CaiDat: { screen: CaiDat },
+    GetLink: { screen: GetLink }
   },
   {
-    initialRouteName: "Swipe",
-    // headerMode: "screen"
+    initialRouteName: "VHU360",
+    headerMode: "screen"
   }
 ));

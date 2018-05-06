@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Portal VHU",
-    "description": "by Đâu Phải Phát",
-    "slug": "PortalVHU",
+    "name": "VHU News",
+    "description": "by ITC",
+    "slug": "VHUNews",
     "privacy": "public",
     "sdkVersion": "26.0.0",
     "platforms": ["ios", "android"],
@@ -11,8 +11,7 @@
     "icon": "./assets/images/icon.png",
     "splash": {
       "image": "./assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#0099ff"
+      "resizeMode": "contain"     
     },
     "updates": {
       "fallbackToCacheTimeout": 0

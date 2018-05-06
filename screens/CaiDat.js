@@ -23,7 +23,7 @@ import {
   Body,
   Right,
   Switch,
-  CheckBox
+  CheckBox,Title
 } from "native-base";
 
 export default class CaiDat extends React.Component {
@@ -67,8 +67,23 @@ export default class CaiDat extends React.Component {
   render() {
     return (
       <Container>
+       <Header  style={{ backgroundColor: "#0099ff",marginTop: Platform.OS === 'android' ? 24 : null }}>
+          <Left>
+            <Button transparent onPress={() => this.props.navigation.navigate("DrawerOpen")}    >
+            <Icon style= {{color:"white"}} name={ Platform.OS === 'ios' ? `ios-menu${focused ? '' : '-outline'}` : 'md-menu'} />
+            </Button>
+          </Left>
+          <Body>
+            <Title style= {{ textAlign: "center",color:"white"}}>Cài Đặt</Title>
+          </Body>
+          <Right>
+            <Button transparent  onPress={() => this.props.navigation.navigate('HoiDap')} >
+            <Icon style= {{color:"white"}} name={ Platform.OS === 'ios' ? `ios-chatbubbles${focused ? '' : '-outline'}` : 'md-chatbubbles'}  />
+            </Button>
+          </Right>
+        </Header>
         <Content>
-          <Image
+          {/* <Image
             source={{
               uri:
                 "https://raw.githubusercontent.com/GeekyAnts/NativeBase-KitchenSink/master/assets/drawer-cover.png"
@@ -91,7 +106,7 @@ export default class CaiDat extends React.Component {
             source={{
               uri: "http://eoffice.vhu.edu.vn/App/assets/img/VHU_logo.png"
             }}
-          />
+          /> */}
 
           <List>
             <ListItem itemDivider>
