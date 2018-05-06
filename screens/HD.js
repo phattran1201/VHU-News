@@ -7,13 +7,13 @@ import {
 // import GetLink from './GetLink'; 
 
 
-export default class TT extends React.Component {
+export default class HD extends React.Component {
     static navigationOptions = ({ navigation }) => ({
         headerLeft: <Icon 
             name={Platform.OS === 'ios' ? `ios-menu${focused ? '' : '-outline'}` : 'md-menu'}
             style={{ paddingLeft: 20, color:'#fff'}} 
             onPress={() => navigation.navigate("DrawerOpen")}  />,
-        title: 'TIN TỨC',
+        title: 'HOẠT ĐỘNG',
         headerRight: <Icon      onPress={() => navigation.navigate({ routeName: "TB" })}   
         name={ Platform.OS === 'ios' ? `ios-notifications${focused ? '' : '-outline'}` : 'md-notifications'} 
             style={{ paddingRight: 20, color:'#fff' }}
@@ -44,7 +44,7 @@ export default class TT extends React.Component {
             loading: true,
             refreshing: true,
         });
-        return fetch("http://itcvhu.me/PortalVHU/getNews.php")
+        return fetch("http://itcvhu.me/PortalVHU/getHoatDong.php")
             .then((response) => response.json())
             .then((responseJson) => {
                 this.setState({                
@@ -55,7 +55,7 @@ export default class TT extends React.Component {
             });
     }
     makeRemoteRequest = () => {
-        const url = `http://itcvhu.me/PortalVHU/getNews.php`;
+        const url = `http://itcvhu.me/PortalVHU/getHoatDong.php`;
         this.setState({ loading: true });
         fetch(url)
             .then(response => response.json())

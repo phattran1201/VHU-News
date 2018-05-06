@@ -5,46 +5,46 @@ import { TabNavigator, TabBarBottom } from 'react-navigation';
 
 import Colors from '../constants/Colors';
 
-import HomeScreen from '../screens/HomeScreen';
+// import HomeScreen from '../screens/HomeScreen';
 // import LinksScreen from '../screens/LinksScreen';
 // import CaiDat from '../screens/CaiDat';
 // import ThongBao from '../screens/ThongBao';
-import BanTin from '../screens/BanTin';
+import TinNoiBat from '../screens/TinNoiBat';
 // import HoiDap from '../screens/HoiDap';
 // import GuiCauHoi from '../screens/GuiCauHoi';
 // import TruyenMH from './TruyenMH';
 // import TruyenTB from './TruyenTB';
 import TruyenTT from './TruyenTT';
-import TT from '../screens/TT';
+// import TT from '../screens/TT';
 // import TB from '../screens/TB';
 //  import GetLink from '../screens/GetLink'; 
-// import TabTT from './TabTT';
+// import TruyenTNB from './TruyenTNB';
 import SideBar from '../screens/SideBar';
-import Swipe from '../screens/Swipe';
-import TabTT from './TabTT';
+// import Swipe from '../screens/Swipe';
+import TruyenTNB from './TruyenTNB';
 import TabSwipe from './TabSwipe';
-
+import TruyenHD from './TruyenHD';
 export default TabNavigator(
   {
   //   'Cài Đặt': {
   //   screen: CaiDat,
   // },
-    'Trang chủ': {
-      screen: HomeScreen,
-    },
+    // 'Trang chủ': {
+    //   screen: HomeScreen,
+    // },
      'Tin Tức': {
       screen: TruyenTT,
     },
-  //    'Thông Báo': {
-  //     screen: TruyenTB,
-  //   },
+    //  'Thông Báo': {
+    //   screen: TruyenTB,
+    // },
     'Bản Tin': {
-      screen: TabTT,
+      screen: TruyenTNB,
     },
     
-  //   'Thảo Luận': {
-  //     screen: TruyenMH,
-  //   },
+    'Hoạt Động': {
+      screen: TruyenHD,
+    },
    
    'Swiper': {
       screen: TabSwipe,
@@ -81,7 +81,7 @@ export default TabNavigator(
           case 'Swiper':
           iconName = Platform.OS === 'ios' ? `ios-swap${focused ? '' : '-outline'}` : 'md-swap';
           break;
-          case 'Thảo Luận':
+          case 'Hoạt Động':
             iconName =
               Platform.OS === 'ios' ? `ios-chatbubbles${focused ? '' : '-outline'}` : 'md-chatbubbles';
         }

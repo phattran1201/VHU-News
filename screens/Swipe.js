@@ -1,24 +1,7 @@
 import React, { Component } from 'react';
-import { Image,Platform,focused } from 'react-native';
+import { Image,Platform,focused,FlatList } from 'react-native';
 import { Fab,Container, Header, View, DeckSwiper, Card, CardItem, Thumbnail, Text, Left, Body, Icon,Button } from 'native-base';
-const cards = [
-  {
-    text: 'Đâu Phải Phát',
-    name: 'Ngày hội máy tính',
-    image: require('../assets/images/1.jpg'),
-  },
-  {
-    text: 'An',
-    name: 'Cậu bé rừng xanh',
-    image: require('../assets/images/2.jpg'),
-  },
-  {
-    text: 'Tuấn',
-    name: 'Joker',
-    image: require('../assets/images/4.jpg'),
-  },
- 
-];
+
 
 export default class Swipe extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -45,44 +28,81 @@ export default class Swipe extends Component {
     },
     headerTintColor: '#fff',
 })
+
+constructor(props) {
+        super(props);
+        this.state = {
+            mang: [],
+            refreshing: false,
+        }
+    }
+    componentDidMount() {
+        this.setState({
+            loading: true,
+            refreshing: true,
+        });
+        return fetch("http://itcvhu.me/PortalVHU/getNews.php")
+            .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({                
+                    mang: responseJson,
+                    loading: false,
+                    refreshing: false,
+                });
+            });
+    }
+    makeRemoteRequest = () => {
+        const url = `http://itcvhu.me/PortalVHU/getNews.php`;
+        this.setState({ loading: true });
+        fetch(url)
+            .then(response => response.json())
+            .then(responseJson => {
+                this.setState({
+                    mang: responseJson,
+                    loading: false,
+                    refreshing: false,
+                });
+            })
+    };
+
+    handleRefresh = () => {
+        this.setState({
+            refreshing: true,
+        }, () => {
+            this.makeRemoteRequest();
+        })
+    };
+
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <Container>
-        {/* <Header style={{ backgroundColor: "#0099ff" }}>    
-        <Text style={{ marginTop:20, fontSize: 17,
-    color: 'rgba(0,0,0,0)',
-    
-    textAlign: 'center',}}>Trượt ngay ảnh hoặc click nút trên để test</Text>
-        </Header>   */}
-       
+            
         <View>
-          <DeckSwiper
-            ref={(c) => this._deckSwiper = c}
-            dataSource={cards}
-            renderEmpty={() =>
-              <View style={{ alignSelf: "center" }}>
-                <Text>Over</Text>
-              </View>}
-            renderItem={item =>
+        <FlatList data={this.state.mang}
+                    renderItem={({ item }) =>       
               <Card style={{ elevation: 3 }}>
                 <CardItem>
                   <Left>
                     <Thumbnail source={item.image} />
                     <Body>
-                      <Text>{item.text}</Text>
-                      <Text note>by Đâu Phải Phát</Text>
+                      <Text>dsad</Text>
+                      <Text note>{item.TIME}</Text>
                     </Body>
                   </Left>
                 </CardItem>
                 <CardItem cardBody>
-                  <Image style={{ height: 300, flex: 1 }} source={item.image} />
+                  <Image style={{ height: 300, flex: 1 }}    source={{ uri: item.URL }} />
                 </CardItem>
                 <CardItem>
                   <Icon style= {{color:"white"}} name="heart" style={{ color: '#ED4A6A' }} />
-                  <Text>{item.name}</Text>
+                  <Text>{item.TIEUDE}</Text>
                 </CardItem>
-              </Card>            }
-          />
+              </Card>            
+              }
+                    refreshing={this.state.refreshing}
+                    onRefresh={this.handleRefresh}
+       />
          
         </View>
         {/* <View style={{ flexDirection: "row", flex: 1, position: "absolute", bottom: 50, left: 0, right: 0, justifyContent: 'space-between', padding: 15 }}>
