@@ -25,7 +25,7 @@ export default class HoiDap extends React.Component {
         textAlign: 'center',
         flex: 1,
         fontWeight: 'bold',   
-        fontStyle: 'italic',
+        // fontStyle: 'italic',
     
     },
     headerStyle: {

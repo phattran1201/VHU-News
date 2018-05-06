@@ -9,7 +9,7 @@ import SideBar from "../screens/SideBar";
 import HomeScreen from '../screens/HomeScreen';
 // import LinksScreen from '../screens/LinksScreen';
 import CaiDat from '../screens/CaiDat';
-import ThongBao from '../screens/ThongBao';
+// import ThongBao from '../screens/ThongBao';
 import BanTin from '../screens/BanTin';
 import HoiDap from '../screens/HoiDap';
 import GuiCauHoi from '../screens/GuiCauHoi';
@@ -23,12 +23,12 @@ import TabTT from './TabTT';
 
 const RootStackNavigator = StackNavigator(
   {
-    // Main: {
-    //   screen: MainTabNavigator,
-    // }, 
-    'Tin Tức': {
-      screen: TruyenTT,
-    },  
+    Main: {
+      screen: MainTabNavigator,
+    }, 
+    // 'Tin Tức': {
+    //   screen: TruyenTT,
+    // },  
     'Cài Đặt': {
       screen: CaiDat,
     },
@@ -39,17 +39,17 @@ const RootStackNavigator = StackNavigator(
        'Thông Báo': {
         screen: TruyenTB,
       },
-      'Bản Tin': {
-        screen: BanTin,
-      },
+      // 'Bản Tin': {
+      //   screen: BanTin,
+      // },
       
       // 'Thảo Luận': {
       //   screen: TruyenMH,
       // },
      
-     'Swiper': {
-        screen: ThongBao,
-      },
+    //  'Swiper': {
+    //     screen: TabTT,
+    //   },
       'Hỏi Đáp': {
         screen: TruyenMH,
       },

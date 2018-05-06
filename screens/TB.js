@@ -13,7 +13,7 @@ export default class TB extends React.Component {
         name={Platform.OS === 'ios' ? `ios-menu${focused ? '' : '-outline'}` : 'md-menu'}
         style={{ paddingLeft: 20, color:'#fff'}} 
         onPress={() => navigation.navigate("DrawerOpen")}  />,
-    title: 'Thông Báo',
+    title: 'THÔNG BÁO',
     headerRight: <Icon      onPress={() => navigation.navigate({ routeName: "HoiDap" })}
        name={ Platform.OS === 'ios' ? `ios-chatbubbles${focused ? '' : '-outline'}` : 'md-chatbubbles'} 
         style={{ paddingRight: 20, color:'#fff' }}
@@ -21,7 +21,8 @@ export default class TB extends React.Component {
     headerTitleStyle: {
         textAlign: 'center',
         flex: 1,
-        fontWeight: 'bold',           
+        fontWeight: 'bold',        
+        // fontStyle: 'italic',   
     },
     headerStyle: {
         backgroundColor: '#0099ff',
@@ -94,7 +95,7 @@ export default class TB extends React.Component {
 </Header> */}
         <Container style={{ backgroundColor: "white" }}>
           <FlatList data={this.state.mang} renderItem={({ item }) => <TouchableOpacity style={{ borderBottomWidth: 0.2, borderBottomColor: "#E0E0E0", padding: 5 }} onPress={() => {
-                  navigate("GetLink", { link: item.LINK });
+                  navigate("GetLink", { link: item.LINK,tieude: item.TIEUDE,linkdemo:'https://www.facebook.com/sharer/sharer.php?u=' });
                 }}>
                 <View style={{ flex: 1, flexDirection: "row", marginTop: 5, marginBottom: 5 }}>
                   <View style={{ flex: 1, paddingLeft: 15 }}>

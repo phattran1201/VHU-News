@@ -28,7 +28,8 @@ class BanTin extends Component {
     headerTitleStyle: {
         textAlign: 'center',
         flex: 1,
-        fontWeight: 'bold',           
+        fontWeight: 'bold',      
+        fontStyle: 'italic',     
     },
     headerStyle: {
         backgroundColor: '#0099ff',

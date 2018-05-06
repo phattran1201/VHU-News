@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image } from 'react-native';
+import { Image,Platform,focused } from 'react-native';
 import { Fab,Container, Header, View, DeckSwiper, Card, CardItem, Thumbnail, Text, Left, Body, Icon,Button } from 'native-base';
 const cards = [
   {
@@ -20,17 +20,40 @@ const cards = [
  
 ];
 
-export default class DeckSwiperAdvancedExample extends Component {
- 
+export default class Swipe extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    headerLeft: <Icon 
+        name={Platform.OS === 'ios' ? `ios-menu${focused ? '' : '-outline'}` : 'md-menu'}
+        style={{ paddingLeft: 20, color:'#fff'}} 
+        onPress={() => navigation.navigate("DrawerOpen")}  />,
+    title: 'VHU NEWS',
+    headerRight: <Icon      onPress={() => navigation.navigate({ routeName: "TB" })}   
+    name={ Platform.OS === 'ios' ? `ios-notifications${focused ? '' : '-outline'}` : 'md-notifications'} 
+        style={{ paddingRight: 20, color:'#fff' }}
+        />,
+    headerTitleStyle: {
+        textAlign: 'center',
+        flex: 1,
+        fontWeight: 'bold',   
+        fontStyle: 'italic',
+    
+    },
+    headerStyle: {
+        backgroundColor: '#0099ff',
+        elevation: 0,
+        shadowOpacity: 0,
+    },
+    headerTintColor: '#fff',
+})
   render() {
     return (
       <Container>
-        <Header style={{ backgroundColor: "#0099ff" }}>    
+        {/* <Header style={{ backgroundColor: "#0099ff" }}>    
         <Text style={{ marginTop:20, fontSize: 17,
     color: 'rgba(0,0,0,0)',
     
     textAlign: 'center',}}>Trượt ngay ảnh hoặc click nút trên để test</Text>
-        </Header>  
+        </Header>   */}
        
         <View>
           <DeckSwiper

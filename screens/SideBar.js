@@ -1,5 +1,5 @@
 import React from "react";
-import { AppRegistry, Image, StatusBar,View,focused,Platform } from "react-native";
+import { AppRegistry, Image, StatusBar,View,focused,Platform,Linking } from "react-native";
 import {
   Button,
   Text,
@@ -19,7 +19,7 @@ export default class SideBar extends React.Component {
     // const {navigator} = this.props.navigation;
     return (
       <Container>
-        <Content>
+        <Content   >
           <Image
             source={{
               uri:
@@ -48,53 +48,42 @@ export default class SideBar extends React.Component {
             }}
           />
           
-          <List style={{  marginTop: 160,alignItems: 'flex-start'}}>
-            <Button   transparent  onPress={() =>  this.props.navigation.navigate('Tin Tức')} >
+          <List   style={{  marginTop: 160,alignItems: 'flex-start'}}>
+            <Button full transparent  onPress={() =>  this.props.navigation.navigate('Tin Tức')} >
               <Icon style={{color: '#09f' }}   name = {Platform.OS === 'ios' ? `ios-home${focused ? '' : '-outline'}` : 'md-home'} />
-              <Text style={{color: '#09f' }} >Trang của bạn</Text>
+              <Text style={{color: '#09f' }} >VHU News</Text>
                 </Button>
-          <Button  transparent   >
+          {/* <Button  full transparent   >
             <Icon style={{color: '#09f' }}  name = {Platform.OS === 'ios' ? `ios-person${focused ? '' : '-outline'}` : 'md-person'} />
             <Text style={{color: '#09f' }}>Thông tin cá nhân</Text>
-          </Button>
-          <Button  transparent    onPress={() => this.props.navigation.navigate('Thông Báo')}>
+          </Button> */}
+          <Button  full transparent    onPress={() => this.props.navigation.navigate('Thông Báo')}>
             <Icon style={{color: '#09f' }}  name = {Platform.OS === 'ios' ? `ios-notifications${focused ? '' : '-outline'}` : 'md-notifications'} />
             <Text style={{color: '#09f' }} >Thông Báo</Text>
           </Button>
-          <Button  transparent    onPress={() => this.props.navigation.navigate('Hỏi Đáp')}>
+          <Button  full transparent    onPress={() => this.props.navigation.navigate('Hỏi Đáp')}>
             <Icon style={{color: '#09f' }}   name = {Platform.OS === 'ios' ? `ios-help-circle${focused ? '' : '-outline'}` : 'md-help-circle'}/>
             <Text style={{color: '#09f' }} >Hỏi Đáp</Text>
           </Button>
-          <Button  transparent  >
+          {/* <Button  full transparent  >
             <Icon style={{color: '#09f' }} name = {Platform.OS === 'ios' ? `ios-paper${focused ? '' : '-outline'}` : 'md-paper'} />
             <Text style={{color: '#09f' }}>Hướng dẫn sử dụng</Text>
-          </Button>
-          <Button  transparent  onPress={() => this.props.navigation.navigate('Cài Đặt')} >
+          </Button> */}
+          <Button  full transparent  onPress={() => this.props.navigation.navigate('Cài Đặt')} >
             <Icon style={{color: '#09f' }}  name = {Platform.OS === 'ios' ? `ios-build${focused ? '' : '-outline'}` : 'md-build'} />
-            <Text style={{color: '#09f' }}>Cài đặt</Text>
+            <Text style={{color: '#09f' }}>Cài Đặt</Text>
           </Button>
-          <Button  transparent  >
+          <Button  full transparent onPress={() =>Linking.openURL('https://www.messenger.com/t/118380728849917')} >
+            <Icon style={{color: '#09f' }}  name = {Platform.OS === 'ios' ? `ios-people${focused ? '' : '-outline'}` : 'md-people'} />
+            <Text style={{color: '#09f' }}>Góp Ý - Báo Lỗi</Text>
+          </Button>
+          {/* <Button  full transparent  >
             <Icon style={{color: '#09f' }} name = {Platform.OS === 'ios' ? `ios-exit${focused ? '' : '-outline'}` : 'md-exit'}  />
             <Text style={{color: '#09f' }}>Đăng xuất</Text>
-          </Button>
+          </Button> */}
           </List>
         </Content>
       </Container>
     );
   }
 }
-{/* <List
-            dataArray={routes}
-            contentContainerStyle={{ marginTop: 120 }}
-            renderRow={ data => {
-              return (
-                <ListItem
-                  button
-                  onPress={() => this.props.navigation.navigate(data)}                >
-                  <Text style={{color: '#09f' }}>{data}</Text>
-                </ListItem>
-              );
-            }}
-          /> */}
-
-         

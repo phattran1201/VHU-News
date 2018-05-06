@@ -18,13 +18,7 @@ import { MonoText } from "../components/StyledText";
 
 
 class Mail extends React.Component {
-  _handlePress = () => {
-    console.log("Thông tin nhập " + this.props.href);
-    Linking.openURL(this.props.href);
-    this.props.onPress && this.props.onPress();
-  };
-
-  render() {
+   render() {
     return (
       <Button title={this.props.title} onPress={this._handlePress} />
     );
@@ -33,8 +27,9 @@ class Mail extends React.Component {
 
 
 export default class HomeScreen extends React.Component {
+  
   static navigationOptions = {
-    header: null
+    // header: null
   };
   
   render() {
@@ -60,27 +55,23 @@ export default class HomeScreen extends React.Component {
         </View>
 
         <View style={styles.helpContainer}>
-          <TouchableOpacity
-            onPress={() =>
-              WebBrowser.openBrowserAsync(
-                "https://www.facebook.com/messages/t/thanh.phat.97"
-              )
-            }
-            style={styles.helpLink}
-          >
-            <Text style={styles.helpLinkText}>Liên hệ mình khi cho ý kiến</Text>
-          </TouchableOpacity>
-          <Image
+         
+          <Image 
             style={styles.itc}
             source={require("../assets/images/icon.png")}
           />
+          <TouchableOpacity
+              onPress={() =>
+                    Linking.openURL(
+                      "https://www.messenger.com/t/118380728849917"
+                    )
+                  }
+            style={styles.helpLink}
+          >
+             <Text style={styles.helpLinkText}>Liên hệ CLB ITC cùng đóng góp phát triển</Text>
+          </TouchableOpacity>
         </View>
-        <View style={styles.button}>
-        <Mail href="https://google.com" title="Go to Google" />
-        <Mail href="mailto://itcvhu@gmail.com" title="Email Expo" />
-      </View>
-        {/* </ScrollView> */}
-
+       
         <View style={styles.tabBarInfoContainer}>
           <Text style={styles.tabBarInfoText}>Thiết kế và Phát triển bởi</Text>
 
@@ -109,7 +100,7 @@ const styles = StyleSheet.create({
     color: "#0099ff",
     lineHeight: 24,
     textAlign: "center",
-    marginHorizontal: 50
+    // marginHorizontal: 50
   },
 
   contentContainer: {

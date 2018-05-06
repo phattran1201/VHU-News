@@ -49,7 +49,7 @@ export default class CommentHoiDap extends React.Component {
     //     name={Platform.OS === 'ios' ? `ios-menu${focused ? '' : '-outline'}` : 'md-menu'}
     //     style={{ paddingLeft: 20, color:'#fff'}}
     //     onPress={() => navigation.navigate("DrawerOpen")}  />,
-    title:  <Text style= {{color: "#fff"}}> {navigation.state.params.hoidapContent}</Text>,
+    title:  <Text style= {{color: "#fff"}}>{navigation.state.params.hoidapContent}</Text>,
     //   headerRight: <Icon
     //  name={ Platform.OS === 'ios' ? `ios-help${focused ? '' : '-outline'}` : 'md-help'}
     //       style={{ paddingRight: 20, color:'#fff' }}
@@ -80,7 +80,9 @@ export default class CommentHoiDap extends React.Component {
     this._postComment = this._postComment.bind(this);
   }
   fetchData(hoidapId) {
-    return fetch(CMT, {
+    if (hoidapId == "") {
+    } else {
+     fetch(CMT, {
       method: "POST",
       body: JSON.stringify({ hoidapId: hoidapId })
     })
@@ -91,7 +93,7 @@ export default class CommentHoiDap extends React.Component {
         });
       })
       .done();
-  }
+  }}
   componentDidMount() {
     this.fetchData(this.props.navigation.state.params.hoidapId);
   }
@@ -126,12 +128,12 @@ export default class CommentHoiDap extends React.Component {
         <Content padder>
           <Card>
             <CardItem header bordered>
-              <Text>Chủ Đề : {' '}
+              <Text>Chủ Đề : {''}
                 {this.props.navigation.state.params.hoidapContent}
               </Text>
             </CardItem>
 
-            <ListView dataSource={this.state.dataSource} renderRow={this.taoHang.bind(this)} />
+            <ListView enableEmptySections={true} dataSource={this.state.dataSource} renderRow={this.taoHang.bind(this)} />
 
             <CardItem footer bordered >
             {/* <Left style={{flex:1}}>
@@ -145,10 +147,8 @@ export default class CommentHoiDap extends React.Component {
                 <Text>Gửi</Text>
               </Button></Right> */}
               <Item>
-            <Input rounded bordered placeholder="Viết bình luận" multiline={true} onChangeText={text => this.setState(
-                      { comment: text }
-                    )} value={this.state.comment} />
-            <Icon active name='send' onPress={() => this._postComment(this.state.comment, this.props.navigation.state.params.hoidapId)} />
+            <Input rounded bordered placeholder="Viết bình luận" multiline={true} onChangeText={text => this.setState({ comment: text })} value={this.state.comment} />
+            <Icon active name={ Platform.OS === 'ios' ? `ios-send${focused ? '' : '-outline'}` : 'md-send'} onPress={() => this._postComment(this.state.comment, this.props.navigation.state.params.hoidapId)} />
           </Item>
                          </CardItem>
                        

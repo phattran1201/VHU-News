@@ -47,7 +47,7 @@ export default class TT extends React.Component {
         return fetch("http://itcvhu.me/PortalVHU/getNews.php")
             .then((response) => response.json())
             .then((responseJson) => {
-                this.setState({
+                this.setState({                
                     mang: responseJson,
                     loading: false,
                     refreshing: false,
@@ -100,7 +100,7 @@ export default class TT extends React.Component {
                         <TouchableOpacity
                             style={{ borderBottomWidth: 0.2, borderBottomColor: '#E0E0E0', padding: 5 }}
                             onPress={() => {
-                                navigate('GetLink', { link: item.LINK,tieude: item.TIEUDE })
+                                navigate('GetLink', { link: item.LINK,tieude: item.TIEUDE, linkdemo:'https://www.facebook.com/sharer/sharer.php?u=' })
                             }}
                         >
                             <View style={{ flexDirection: "row", marginTop: 5, marginBottom: 5 }}>

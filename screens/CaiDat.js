@@ -1,5 +1,14 @@
 import React from "react";
-import { AppRegistry, Image, StatusBar,View,focused,WebBrowser,Platform } from "react-native";
+import {
+  AppRegistry,
+  Image,
+  StatusBar,
+  View,
+  focused,
+  WebBrowser,
+  Platform,
+  Linking
+} from "react-native";
 import {
   Button,
   Text,
@@ -8,46 +17,81 @@ import {
   ListItem,
   Content,
   Icon,
-  Left,Separator,
-  Header,Body,Right,Switch, CheckBox
+  Left,
+  Separator,
+  Header,
+  Body,
+  Right,
+  Switch,
+  CheckBox
 } from "native-base";
-
-
-
 
 export default class CaiDat extends React.Component {
   static navigationOptions = ({ navigation }) => ({
-    headerLeft: <Icon 
-        name={Platform.OS === 'ios' ? `ios-menu${focused ? '' : '-outline'}` : 'md-menu'}
-        style={{ paddingLeft: 20, color:'#fff'}} 
-        onPress={() => navigation.navigate("DrawerOpen")}  />,
-    title: 'CÀI ĐẶT',
-    headerRight: <Icon   onPress={() => navigation.navigate({ routeName: "HoiDap" })}
-   name={ Platform.OS === 'ios' ? `ios-add-circle${focused ? '' : '-outline'}` : 'md-add-circle'} 
-        style={{ paddingRight: 20, color:'#fff' }}
-        />,
+    headerLeft: (
+      <Icon
+        name={
+          Platform.OS === "ios"
+            ? `ios-menu${focused ? "" : "-outline"}`
+            : "md-menu"
+        }
+        style={{ paddingLeft: 20, color: "#fff" }}
+        onPress={() => navigation.navigate("DrawerOpen")}
+      />
+    ),
+    title: "CÀI ĐẶT",
+    headerRight: (
+      <Icon
+        onPress={() => navigation.navigate({ routeName: "HoiDap" })}
+        name={
+          Platform.OS === "ios"
+            ? `ios-add-circle${focused ? "" : "-outline"}`
+            : "md-add-circle"
+        }
+        style={{ paddingRight: 20, color: "#fff" }}
+      />
+    ),
     headerTitleStyle: {
-        textAlign: 'center',
-        flex: 1,
-        fontWeight: 'bold',   
-        // fontStyle: 'italic',
-    
+      textAlign: "center",
+      flex: 1,
+      fontWeight: "bold"
+      // fontStyle: 'italic',
     },
     headerStyle: {
-        backgroundColor: '#0099ff',
-        elevation: 0,
-        shadowOpacity: 0,
+      backgroundColor: "#0099ff",
+      elevation: 0,
+      shadowOpacity: 0
     },
-    headerTintColor: '#fff',
-})
+    headerTintColor: "#fff"
+  });
   render() {
-    return <Container>
+    return (
+      <Container>
         <Content>
-          <Image source={{ uri: "https://raw.githubusercontent.com/GeekyAnts/NativeBase-KitchenSink/master/assets/drawer-cover.png" }} style={{ height: 120, width: "100%" }
+          <Image
+            source={{
+              uri:
+                "https://raw.githubusercontent.com/GeekyAnts/NativeBase-KitchenSink/master/assets/drawer-cover.png"
+            }}
+            style={
+              { height: 120, width: "100%" }
               // alignSelf: "stretch",
               // position: "absolute"
-            } />
-          <Image square style={{ height: 80, width: 150, position: "absolute", alignSelf: "center", top: 20 }} source={{ uri: "http://eoffice.vhu.edu.vn/App/assets/img/VHU_logo.png" }} />
+            }
+          />
+          <Image
+            square
+            style={{
+              height: 80,
+              width: 150,
+              position: "absolute",
+              alignSelf: "center",
+              top: 20
+            }}
+            source={{
+              uri: "http://eoffice.vhu.edu.vn/App/assets/img/VHU_logo.png"
+            }}
+          />
 
           <List>
             <ListItem itemDivider>
@@ -55,7 +99,13 @@ export default class CaiDat extends React.Component {
             </ListItem>
             <ListItem icon>
               <Left>
-                <Icon  name={Platform.OS === 'ios' ? `ios-notifications${focused ? '' : '-outline'}` : 'md-notifications'}  />
+                <Icon
+                  name={
+                    Platform.OS === "ios"
+                      ? `ios-notifications${focused ? "" : "-outline"}`
+                      : "md-notifications"
+                  }
+                />
               </Left>
               <Body>
                 <Text>Thông Báo</Text>
@@ -66,7 +116,13 @@ export default class CaiDat extends React.Component {
             </ListItem>
             <ListItem icon>
               <Left>
-                <Icon  name={Platform.OS === 'ios' ? `ios-pulse${focused ? '' : '-outline'}` : 'md-pulse'}/>
+                <Icon
+                  name={
+                    Platform.OS === "ios"
+                      ? `ios-pulse${focused ? "" : "-outline"}`
+                      : "md-pulse"
+                  }
+                />
               </Left>
               <Body>
                 <Text>Rung</Text>
@@ -80,22 +136,44 @@ export default class CaiDat extends React.Component {
             </ListItem>
             <ListItem icon>
               <Left>
-                <Icon  name={Platform.OS === 'ios' ? `ios-people${focused ? '' : '-outline'}` : 'md-people'} />
+                <Icon
+                  name={
+                    Platform.OS === "ios"
+                      ? `ios-people${focused ? "" : "-outline"}`
+                      : "md-people"
+                  }
+                />
               </Left>
               <Body>
-                <Text>Câu lạc bộ ITC</Text>
+                <Text
+                  onPress={() =>
+                    Linking.openURL(
+                      "https://www.messenger.com/t/118380728849917"
+                    )
+                  }
+                >
+                  Câu lạc bộ ITC
+                </Text>
               </Body>
             </ListItem>
             <ListItem icon>
               <Left>
-                <Icon  name={Platform.OS === 'ios' ? `ios-person${focused ? '' : '-outline'}` : 'md-person'}/>
+                <Icon
+                  name={
+                    Platform.OS === "ios"
+                      ? `ios-person${focused ? "" : "-outline"}`
+                      : "md-person"
+                  }
+                />
               </Left>
               <Body>
-                <Text onPress={() =>
-              WebBrowser.openBrowserAsync(
-                "https://www.facebook.com/messages/t/thanh.phat.97"
-              )
-            }>Người phát triển</Text>
+                <Text
+                  onPress={() =>
+                    Linking.openURL("https://www.messenger.com/t/thanh.phat.97")
+                  }
+                >
+                  Người phát triển
+                </Text>
               </Body>
             </ListItem>
             <ListItem itemDivider>
@@ -103,7 +181,13 @@ export default class CaiDat extends React.Component {
             </ListItem>
             <ListItem icon>
               <Left>
-                <Icon  name={Platform.OS === 'ios' ? `ios-information-circle${focused ? '' : '-outline'}` : 'md-information-circle'}  />
+                <Icon
+                  name={
+                    Platform.OS === "ios"
+                      ? `ios-information-circle${focused ? "" : "-outline"}`
+                      : "md-information-circle"
+                  }
+                />
               </Left>
               <Body>
                 <Text>Trợ giúp</Text>
@@ -111,7 +195,13 @@ export default class CaiDat extends React.Component {
             </ListItem>
             <ListItem icon>
               <Left>
-                <Icon  name={Platform.OS === 'ios' ? `ios-lock${focused ? '' : '-outline'}` : 'md-lock'}/>
+                <Icon
+                  name={
+                    Platform.OS === "ios"
+                      ? `ios-lock${focused ? "" : "-outline"}`
+                      : "md-lock"
+                  }
+                />
               </Left>
               <Body>
                 <Text>Chính sách bảo mật</Text>
@@ -119,7 +209,13 @@ export default class CaiDat extends React.Component {
             </ListItem>
             <ListItem icon>
               <Left>
-                <Icon  name={Platform.OS === 'ios' ? `ios-bookmarks${focused ? '' : '-outline'}` : 'md-person'} />
+                <Icon
+                  name={
+                    Platform.OS === "ios"
+                      ? `ios-bookmarks${focused ? "" : "-outline"}`
+                      : "md-person"
+                  }
+                />
               </Left>
               <Body>
                 <Text>Điều khoản Dịch vụ</Text>
@@ -127,7 +223,13 @@ export default class CaiDat extends React.Component {
             </ListItem>
             <ListItem icon>
               <Left>
-                <Icon  name={Platform.OS === 'ios' ? `ios-exit${focused ? '' : '-outline'}` : 'md-exit'} />
+                <Icon
+                  name={
+                    Platform.OS === "ios"
+                      ? `ios-exit${focused ? "" : "-outline"}`
+                      : "md-exit"
+                  }
+                />
               </Left>
               <Body>
                 <Text>Đăng xuất</Text>
@@ -135,13 +237,13 @@ export default class CaiDat extends React.Component {
             </ListItem>
           </List>
         </Content>
-      </Container>;
+      </Container>
+    );
   }
 }
 
-
-
-{/* <List
+{
+  /* <List
             dataArray={routes}
             contentContainerStyle={{ marginTop: 120 }}
             renderRow={ data => {
@@ -153,4 +255,5 @@ export default class CaiDat extends React.Component {
                 </ListItem>
               );
             }}
-          /> */}
+          /> */
+}
