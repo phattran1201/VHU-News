@@ -21,8 +21,8 @@ class BanTin extends Component {
         style={{ paddingLeft: 20, color:'#fff'}} 
         onPress={() => navigation.navigate("DrawerOpen")}  />,
     title: 'TIN NỔI BẬT',
-    headerRight: <Icon      onPress={() => navigation.navigate({ routeName: "HoiDap" })}
-       name={ Platform.OS === 'ios' ? `ios-chatbubbles${focused ? '' : '-outline'}` : 'md-chatbubbles'} 
+    headerRight:  <Icon      onPress={() => navigation.navigate({ routeName: "TB" })}   
+    name={ Platform.OS === 'ios' ? `ios-notifications${focused ? '' : '-outline'}` : 'md-notifications'} 
         style={{ paddingRight: 20, color:'#fff' }}
         />,
     headerTitleStyle: {

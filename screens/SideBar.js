@@ -49,7 +49,7 @@ export default class SideBar extends React.Component {
           />
           
           <List   style={{  marginTop: 160,alignItems: 'flex-start'}}>
-            <Button  transparent  onPress={() =>  this.props.navigation.navigate('Tin Tức')} >
+            <Button  transparent  onPress={() =>  this.props.navigation.navigate('Main')} >
               <Icon style={{color: '#09f' }}   name = {Platform.OS === 'ios' ? `ios-home${focused ? '' : '-outline'}` : 'md-home'} />
               <Text style={{color: '#09f',width:'100%'}} >VHU News</Text>
                 </Button>

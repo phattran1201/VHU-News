@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Image,Platform,focused,FlatList } from 'react-native';
+import { Image,Platform,focused,FlatList,Linking } from 'react-native';
 import { Fab,Container, Header, View, DeckSwiper, Card, CardItem, Thumbnail, Text, Left, Body, Icon,Button } from 'native-base';
-
 
 export default class Swipe extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -9,7 +8,7 @@ export default class Swipe extends Component {
         name={Platform.OS === 'ios' ? `ios-menu${focused ? '' : '-outline'}` : 'md-menu'}
         style={{ paddingLeft: 20, color:'#fff'}} 
         onPress={() => navigation.navigate("DrawerOpen")}  />,
-    title: 'VHU NEWS',
+    title: 'VHU 360',
     headerRight: <Icon      onPress={() => navigation.navigate({ routeName: "TB" })}   
     name={ Platform.OS === 'ios' ? `ios-notifications${focused ? '' : '-outline'}` : 'md-notifications'} 
         style={{ paddingRight: 20, color:'#fff' }}
@@ -82,21 +81,22 @@ constructor(props) {
         <FlatList data={this.state.mang}
                     renderItem={({ item }) =>       
               <Card style={{ elevation: 3 }}>
-                <CardItem>
-                  <Left>
-                    <Thumbnail source={item.image} />
-                    <Body>
-                      <Text>dsad</Text>
-                      <Text note>{item.TIME}</Text>
+                {/* <CardItem>
+                  <Left>               
+                    <Body>                  
+                     
                     </Body>
                   </Left>
-                </CardItem>
+                </CardItem> */}
                 <CardItem cardBody>
                   <Image style={{ height: 300, flex: 1 }}    source={{ uri: item.URL }} />
                 </CardItem>
                 <CardItem>
-                  <Icon style= {{color:"white"}} name="heart" style={{ color: '#ED4A6A' }} />
-                  <Text>{item.TIEUDE}</Text>
+                  <Icon style= {{color:"white"}}
+                    name={ Platform.OS === 'ios' ? `ios-share${focused ? '' : '-outline'}` : 'md-share'}  style={{ color: '#ED4A6A' }}
+                  onPress={() =>Linking.openURL('https://www.facebook.com/sharer/sharer.php?u='+item.LINK)}/>
+                  {/* <Text note>{item.TIME}</Text> */}
+                  <Text>{item.TIEUDE}</Text>                 
                 </CardItem>
               </Card>            
               }

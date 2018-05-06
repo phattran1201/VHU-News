@@ -32,21 +32,22 @@ export default TabNavigator(
     // 'Trang chủ': {
     //   screen: HomeScreen,
     // },
+    'Tin Nổi Bật': {
+      screen: TruyenTNB,
+    },
+    
      'Tin Tức': {
       screen: TruyenTT,
     },
     //  'Thông Báo': {
     //   screen: TruyenTB,
     // },
-    'Bản Tin': {
-      screen: TruyenTNB,
-    },
-    
+  
     'Hoạt Động': {
       screen: TruyenHD,
     },
    
-   'Swiper': {
+   'VHU 360': {
       screen: TabSwipe,
     },
     // 'SideBar': {
@@ -69,7 +70,7 @@ export default TabNavigator(
           case 'Thông Báo':
             iconName = Platform.OS === 'ios' ? `ios-notifications${focused ? '' : '-outline'}` : 'md-notifications';
             break;
-          case 'Bản Tin':
+          case 'Tin Nổi Bật':
                   iconName = Platform.OS === 'ios' ? `ios-barcode${focused ? '' : '-outline'}`: 'md-barcode';
             break;
           case 'Tin Tức':
@@ -78,12 +79,12 @@ export default TabNavigator(
           case 'Cài Đặt':
           iconName = Platform.OS === 'ios' ? `ios-settings${focused ? '' : '-outline'}` : 'md-settings';
           break;
-          case 'Swiper':
-          iconName = Platform.OS === 'ios' ? `ios-swap${focused ? '' : '-outline'}` : 'md-swap';
+          case 'VHU 360':
+          iconName = Platform.OS === 'ios' ? `ios-ionitron${focused ? '' : '-outline'}` : 'md-ionitron';
           break;
           case 'Hoạt Động':
             iconName =
-              Platform.OS === 'ios' ? `ios-chatbubbles${focused ? '' : '-outline'}` : 'md-chatbubbles';
+              Platform.OS === 'ios' ? `ios-people${focused ? '' : '-outline'}` : 'md-people';
         }
         return (
           <Ionicons
